@@ -1,0 +1,43 @@
+:root {
+  --primary-color: #00BFB3;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 2rem;
+}
+
+.service-intro {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+} 
