@@ -6,8 +6,9 @@ function Contact() {
     email: '',
     message: ''
   });
-
   const [charCount, setCharCount] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,10 +22,41 @@ function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // 여기에 폼 제출 로직 추가
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    const templateParams = {
+      to_name: 'Mintiz',
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      reply_to: formData.email,
+      subject: `[Mintiz 문의] ${formData.name}님의 문의사항`
+    };
+
+    try {
+      const result = await window.emailjs.send(
+'service_xhxqcoo',    // Email Services에서 확인한 Service ID
+        'template_ejyl5vc',   // Email Templates에서 확인한 Template ID
+        templateParams,
+        'j1DLk5TITaqvskJbQ'
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setCharCount(0);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Email send error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -35,6 +67,18 @@ function Contact() {
           Mintiz에 대해 궁금하신 점이 있으시다면 언제든 문의해주세요.
         </p>
         
+        {submitStatus === 'success' && (
+          <div className="alert success">
+            문의가 성공적으로 전송되었습니다. 감사합니다!
+          </div>
+        )}
+        
+        {submitStatus === 'error' && (
+          <div className="alert error">
+            문의 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="contact-form">
           <div className="form-group">
             <label htmlFor="name">이름</label>
@@ -78,8 +122,12 @@ function Contact() {
             </div>
           </div>
 
-          <button type="submit" className="submit-button">
-            문의하기
+          <button 
+            type="submit" 
+            className={`submit-button ${isSubmitting ? 'submitting' : ''}`}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? '전송 중...' : '문의하기'}
           </button>
         </form>
       </div>

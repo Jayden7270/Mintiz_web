@@ -755,3 +755,33 @@ body {
     font-size: 16px; /* iOS에서 자동 확대 방지 */
   }
 } 
+
+/* 기존 스타일에 추가 */
+
+.alert {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.alert.success {
+  background-color: #e7f7ef;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+.submit-button.submitting {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+} 
