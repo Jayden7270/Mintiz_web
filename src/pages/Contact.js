@@ -28,12 +28,12 @@ function Contact() {
     setSubmitStatus(null);
 
     const templateParams = {
-      to_name: 'Mintiz',
+      to_name: 'MintiZ',
       from_name: formData.name,
       from_email: formData.email,
       message: formData.message,
       reply_to: formData.email,
-      subject: `[Mintiz 문의] ${formData.name}님의 문의사항`
+      subject: `[MintiZ 문의] ${formData.name}님의 문의사항`
     };
 
     try {
@@ -64,7 +64,7 @@ function Contact() {
       <div className="contact-container">
         <h1>문의하기</h1>
         <p className="contact-description">
-          Mintiz에 대해 궁금하신 점이 있으시다면 언제든 문의해주세요.
+          MintiZ에 대해 궁금하신 점이 있으시다면 언제든 문의해주세요.
         </p>
         
         {submitStatus === 'success' && (

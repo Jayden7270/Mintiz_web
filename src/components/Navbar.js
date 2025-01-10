@@ -30,7 +30,7 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="logo">
-          <Link to="/">Mintiz</Link>
+          <Link to="/">MintiZ</Link>
         </div>
         <button 
           className={`mobile-menu-btn ${menuOpen ? 'active' : ''}`}

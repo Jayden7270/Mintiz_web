@@ -13,7 +13,7 @@ function Home() {
 
       <section className="mission-section">
         <div className="container">
-          <h2 className="section-title">Why Mintiz?</h2>
+          <h2 className="section-title">Why MintiZ?</h2>
           <div className="mission-grid">
             <div className="mission-card">
               <span className="emoji">🌱</span>
@@ -66,7 +66,7 @@ function Home() {
           <div className="impact-content">
             <div className="impact-text">
               <h3>함께 만드는 변화</h3>
-              <p>Mintiz와 함께하는 모든 순간이<br/>지구를 위한 소중한 발걸음이 됩니다</p>
+              <p>MintiZ와 함께하는 모든 순간이<br/>지구를 위한 소중한 발걸음이 됩니다</p>
             </div>
           </div>
         </div>

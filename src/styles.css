@@ -67,6 +67,7 @@ body {
 
 /* Mission Section */
 .mission-section {
+  height: 100vh;
   padding: 6rem 0;
   background: var(--white);
 }
@@ -104,6 +105,7 @@ body {
 
 /* Process Section */
 .process-section {
+  height: 100vh;
   padding: 6rem 0;
   background: var(--light-gray);
 }
@@ -175,6 +177,11 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   font-size: 1.1rem;
+}
+
+.impact-section {
+  align-content: center;
+  height: 100vh;
 }
 
 /* 반응형 디자인 */
