@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Logo from "../image/Logo.png";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,7 +31,7 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="logo">
-          <Link to="/">MintiZ</Link>
+          <Link to="/">MintiZ <img src={Logo} alt="MintiZ Logo" className="logo-nav-image" /> </Link>
         </div>
         <button 
           className={`mobile-menu-btn ${menuOpen ? 'active' : ''}`}

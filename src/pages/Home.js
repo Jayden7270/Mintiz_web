@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from "../image/Logo.png"
 
 function Home() {
   return (
@@ -67,6 +68,7 @@ function Home() {
             <div className="impact-text">
               <h3>함께 만드는 변화</h3>
               <p>MintiZ와 함께하는 모든 순간이<br/>지구를 위한 소중한 발걸음이 됩니다</p>
+              <img src={Logo} alt="MintiZ Logo" className="logo-home-image" />
             </div>
           </div>
         </div>
