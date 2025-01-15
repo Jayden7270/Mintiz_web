@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from "../image/Logo.png"
 
 function Home() {
@@ -8,7 +9,7 @@ function Home() {
         <div className="hero-content">
           <h1>지구를 위한 작은 실천</h1>
           <p className="hero-subtitle">더 이상 버리지 마세요, 새로운 가치를 만들어요</p>
-          <button className="cta-button">지금 시작하기</button>
+          <Link to="/contact" className="cta-button">지금 시작하기</Link>
         </div>
       </section>
 

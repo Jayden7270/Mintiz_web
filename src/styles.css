@@ -942,3 +942,73 @@ body {
     transform: translate(-20vw, 10vh) rotate(270deg);
   }
 } 
+
+/* 이용방법 페이지 스타일 */
+.howto-page {
+  padding: 120px 5% 60px;
+  min-height: 100vh;
+}
+
+.price-section,
+.usage-section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.price-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.price-image,
+.usage-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.usage-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.step-card {
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.usage-image-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .usage-steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .step-card {
+    padding: 20px;
+  }
+} 

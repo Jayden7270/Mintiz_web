@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from "../image/Logo.png";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // useNavigate hook for programmatic navigation
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +21,13 @@ function Navbar() {
     setMenuOpen(false);
   };
 
+  const handleHowToUseClick = () => {
+    navigate('/how-to-use'); // Navigate to the HowToUse page
+    setMenuOpen(false);
+  };
+
   const handleContactClick = () => {
-    navigate('/contact');
+    navigate('/contact'); // Navigate to the Contact page
     setMenuOpen(false);
   };
 
@@ -31,7 +35,7 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="logo">
-          <Link to="/">MintiZ <img src={Logo} alt="MintiZ Logo" className="logo-nav-image" /> </Link>
+          <Link to="/">Mintiz</Link>
         </div>
         <button 
           className={`mobile-menu-btn ${menuOpen ? 'active' : ''}`}
@@ -44,12 +48,13 @@ function Navbar() {
         <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
           <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>홈</Link>
           <button onClick={handleTermsClick} className="nav-link">이용약관</button>
+          <button onClick={handleHowToUseClick} className="nav-link">이용방법</button>
           <button onClick={handleContactClick} className="nav-link">문의하기</button>
-          <button className="nav-button primary">수거 신청</button>
+          <Link to="/pickup-request" className="nav-button primary" onClick={() => setMenuOpen(false)}>수거 신청</Link>
         </div>
       </div>
     </nav>
   );
 }
 
-export default Navbar; 
+export default Navbar;
