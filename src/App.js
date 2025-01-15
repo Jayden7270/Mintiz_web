@@ -7,16 +7,20 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <div className="App">
+      <div className="floating-sphere"></div>
+      <div className="floating-sphere"></div>
+      <div className="floating-sphere"></div>
+      
+      <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
