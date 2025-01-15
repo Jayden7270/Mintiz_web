@@ -11,6 +11,7 @@ function App() {
       <div className="floating-sphere"></div>
       <div className="floating-sphere"></div>
       <div className="floating-sphere"></div>
+      <div className="floating-sphere"></div>
       
       <Router>
         <Navbar />
