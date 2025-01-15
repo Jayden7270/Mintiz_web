@@ -895,26 +895,37 @@ body {
   background: linear-gradient(45deg, var(--primary-color), #00e5ff);
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.5;
+  opacity: 0.4;
   animation: floatSphere 15s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
 }
 
 .floating-sphere:nth-child(2) {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background: linear-gradient(45deg, #ff6b6b, var(--primary-color));
   animation-delay: -7s;
   animation-duration: 18s;
+  opacity: 0.3;
 }
 
 .floating-sphere:nth-child(3) {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background: linear-gradient(45deg, #ffd93d, #ff6b6b);
   animation-delay: -3s;
   animation-duration: 20s;
+  opacity: 0.35;
+}
+
+.floating-sphere:nth-child(4) {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  animation-delay: -5s;
+  animation-duration: 22s;
+  opacity: 0.3;
 }
 
 @keyframes floatSphere {
