@@ -884,3 +884,50 @@ body {
     align-items: center;
   }
 } 
+
+/* 3D 플로팅 구체 애니메이션 */
+.floating-sphere {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, var(--primary-color), #00e5ff);
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: floatSphere 15s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-sphere:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #ff6b6b, var(--primary-color));
+  animation-delay: -7s;
+  animation-duration: 18s;
+}
+
+.floating-sphere:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+  animation-delay: -3s;
+  animation-duration: 20s;
+}
+
+@keyframes floatSphere {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(30vw, 20vh) rotate(90deg);
+  }
+  50% {
+    transform: translate(-10vw, 40vh) rotate(180deg);
+  }
+  75% {
+    transform: translate(-20vw, 10vh) rotate(270deg);
+  }
+} 
