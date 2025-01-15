@@ -10,72 +10,29 @@ function Home() {
 
       <section className="hero">
         <div className="hero-content">
-          <h1 className="hero-title">
-            <span className="gradient-text">지구를 위한</span><br />
-            의류수거 플랫폼
-          </h1>
-          <p className="hero-subtitle">
-            더 나은 미래를 위한 첫걸음,<br />
-            Mintiz와 함께 시작하세요.
+          <h1 className="hero-title">Mintiz에 오신 것을 환영합니다!</h1>
+          <p className="hero-description">
+            지구를 위한 의류 수거 플랫폼으로, 지속 가능한 미래를 함께 만들어갑니다.
           </p>
-          <div className="hero-buttons">
-            <Link to="/contact" className="button-primary">시작하기</Link>
-            <a href="#features" className="button-secondary">더 알아보기</a>
-          </div>
-        </div>
-        <div className="hero-image">
-          <div className="image-container">
-            <img src="/images/hero-image.png" alt="Mintiz Service" />
-          </div>
+          <Link to="/contact" className="button-primary">지금 시작하기</Link>
         </div>
       </section>
 
-      <section id="features" className="features">
-        <h2 className="section-title">Why Mintiz?</h2>
+      <section className="features">
+        <h2 className="section-title">우리의 특징</h2>
         <div className="features-grid">
           <div className="feature-card">
-            <div className="feature-icon">🌱</div>
-            <h3>환경 보호</h3>
-            <p>의류 재활용을 통한<br />지속 가능한 미래 창출</p>
+            <h3>편리한 수거 서비스</h3>
+            <p>간편한 신청으로 집 앞에서 의류를 수거합니다.</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">🚚</div>
-            <h3>편리한 수거</h3>
-            <p>원하는 시간과 장소에서<br />간편한 수거 서비스</p>
+            <h3>지속 가능한 패션</h3>
+            <p>재활용과 재사용을 통해 환경을 보호합니다.</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">💝</div>
-            <h3>나눔의 가치</h3>
-            <p>의미 있는 기부로<br />따뜻한 마음 전달</p>
+            <h3>커뮤니티 참여</h3>
+            <p>지속 가능한 패션을 위한 다양한 이벤트에 참여하세요.</p>
           </div>
-        </div>
-      </section>
-
-      <section className="impact">
-        <div className="impact-content">
-          <h2 className="section-title">Our Impact</h2>
-          <div className="impact-stats">
-            <div className="stat-card">
-              <h3>1,234kg</h3>
-              <p>수거된 의류</p>
-            </div>
-            <div className="stat-card">
-              <h3>567명</h3>
-              <p>참여 회원</p>
-            </div>
-            <div className="stat-card">
-              <h3>89톤</h3>
-              <p>감소된 탄소</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cta">
-        <div className="cta-content">
-          <h2>지금 바로 시작하세요</h2>
-          <p>더 나은 미래를 위한 작은 실천이 큰 변화를 만듭니다.</p>
-          <Link to="/contact" className="button-primary">문의하기</Link>
         </div>
       </section>
     </div>
