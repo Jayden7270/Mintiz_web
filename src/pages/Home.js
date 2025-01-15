@@ -1,76 +1,81 @@
 import React from 'react';
-import Logo from "../image/Logo.png"
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div className="home">
-      <section className="hero-section">
+    <div className="home-page">
+      <div className="floating-sphere"></div>
+      <div className="floating-sphere"></div>
+      <div className="floating-sphere"></div>
+
+      <section className="hero">
         <div className="hero-content">
-          <h1>지구를 위한 작은 실천</h1>
-          <p className="hero-subtitle">더 이상 버리지 마세요, 새로운 가치를 만들어요</p>
-          <button className="cta-button">지금 시작하기</button>
+          <h1 className="hero-title">
+            <span className="gradient-text">지구를 위한</span><br />
+            의류수거 플랫폼
+          </h1>
+          <p className="hero-subtitle">
+            더 나은 미래를 위한 첫걸음,<br />
+            Mintiz와 함께 시작하세요.
+          </p>
+          <div className="hero-buttons">
+            <Link to="/contact" className="button-primary">시작하기</Link>
+            <a href="#features" className="button-secondary">더 알아보기</a>
+          </div>
+        </div>
+        <div className="hero-image">
+          <div className="image-container">
+            <img src="/images/hero-image.png" alt="Mintiz Service" />
+          </div>
         </div>
       </section>
 
-      <section className="mission-section">
-        <div className="container">
-          <h2 className="section-title">Why MintiZ?</h2>
-          <div className="mission-grid">
-            <div className="mission-card">
-              <span className="emoji">🌱</span>
-              <h3>환경을 생각하는 방식</h3>
-              <p>의류 폐기물로 인한 환경 오염을 줄이고, 지속 가능한 미래를 만듭니다</p>
+      <section id="features" className="features">
+        <h2 className="section-title">Why Mintiz?</h2>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">🌱</div>
+            <h3>환경 보호</h3>
+            <p>의류 재활용을 통한<br />지속 가능한 미래 창출</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🚚</div>
+            <h3>편리한 수거</h3>
+            <p>원하는 시간과 장소에서<br />간편한 수거 서비스</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">💝</div>
+            <h3>나눔의 가치</h3>
+            <p>의미 있는 기부로<br />따뜻한 마음 전달</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="impact">
+        <div className="impact-content">
+          <h2 className="section-title">Our Impact</h2>
+          <div className="impact-stats">
+            <div className="stat-card">
+              <h3>1,234kg</h3>
+              <p>수거된 의류</p>
             </div>
-            <div className="mission-card">
-              <span className="emoji">🚛</span>
-              <h3>간편한 수거 서비스</h3>
-              <p>원하는 날짜에 방문하여 소중한 의류를 수거합니다</p>
+            <div className="stat-card">
+              <h3>567명</h3>
+              <p>참여 회원</p>
             </div>
-            <div className="mission-card">
-              <span className="emoji">💝</span>
-              <h3>나눔의 가치</h3>
-              <p>수거된 의류는 필요한 곳에 전달되어 새로운 가치를 만듭니다</p>
+            <div className="stat-card">
+              <h3>89톤</h3>
+              <p>감소된 탄소</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="process-section">
-        <div className="container">
-          <h2 className="section-title">이용 방법</h2>
-          <div className="process-steps">
-            <div className="step">
-              <div className="step-number">01</div>
-              <div className="step-emoji">📱</div>
-              <h3>수거 신청</h3>
-              <p>앱에서 간편하게 수거를 신청하세요</p>
-            </div>
-            <div className="step">
-              <div className="step-number">02</div>
-              <div className="step-emoji">🚛</div>
-              <h3>방문 수거</h3>
-              <p>전문 수거팀이 지정된 시간에 방문합니다</p>
-            </div>
-            <div className="step">
-              <div className="step-number">03</div>
-              <div className="step-emoji">💰</div>
-              <h3>금액 적립</h3>
-              <p>수거된 의류의 양에 따라 현금을 드립니다</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="impact-section">
-        <div className="container">
-          <h2 className="section-title">Environmental Impact</h2>
-          <div className="impact-content">
-            <div className="impact-text">
-              <h3>함께 만드는 변화</h3>
-              <p>MintiZ와 함께하는 모든 순간이<br/>지구를 위한 소중한 발걸음이 됩니다</p>
-              <img src={Logo} alt="MintiZ Logo" className="logo-home-image" />
-            </div>
-          </div>
+      <section className="cta">
+        <div className="cta-content">
+          <h2>지금 바로 시작하세요</h2>
+          <p>더 나은 미래를 위한 작은 실천이 큰 변화를 만듭니다.</p>
+          <Link to="/contact" className="button-primary">문의하기</Link>
         </div>
       </section>
     </div>

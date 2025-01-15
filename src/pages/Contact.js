@@ -61,20 +61,20 @@ function Contact() {
 
   return (
     <div className="contact-page">
-      <div className="contact-container">
-        <h1>문의하기</h1>
+      <div className="contact-container card">
+        <h1 className="section-title">문의하기</h1>
         <p className="contact-description">
-          MintiZ에 대해 궁금하신 점이 있으시다면 언제든 문의해주세요.
+          Mintiz에 대해 궁금하신 점이 있으시다면 언제든 문의해주세요.
         </p>
         
         {submitStatus === 'success' && (
-          <div className="alert success">
+          <div className="alert success card">
             문의가 성공적으로 전송되었습니다. 감사합니다!
           </div>
         )}
         
         {submitStatus === 'error' && (
-          <div className="alert error">
+          <div className="alert error card">
             문의 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.
           </div>
         )}
@@ -83,6 +83,7 @@ function Contact() {
           <div className="form-group">
             <label htmlFor="name">이름</label>
             <input
+              className="input-modern"
               type="text"
               id="name"
               name="name"
@@ -96,6 +97,7 @@ function Contact() {
           <div className="form-group">
             <label htmlFor="email">이메일</label>
             <input
+              className="input-modern"
               type="email"
               id="email"
               name="email"
@@ -109,6 +111,7 @@ function Contact() {
           <div className="form-group">
             <label htmlFor="message">문의내용</label>
             <textarea
+              className="input-modern"
               id="message"
               name="message"
               value={formData.message}
@@ -124,7 +127,7 @@ function Contact() {
 
           <button 
             type="submit" 
-            className={`submit-button ${isSubmitting ? 'submitting' : ''}`}
+            className={`button-neon ${isSubmitting ? 'submitting' : ''}`}
             disabled={isSubmitting}
           >
             {isSubmitting ? '전송 중...' : '문의하기'}

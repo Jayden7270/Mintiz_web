@@ -9,6 +9,9 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <div className="floating-sphere"></div>
+        <div className="floating-sphere"></div>
+        <div className="floating-sphere"></div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
