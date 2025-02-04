@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -57,6 +58,10 @@ function Contact() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleKakaoClick = () => {
+    window.open('http://pf.kakao.com/_kWxfdn', '_blank');
   };
 
   return (
@@ -130,6 +135,15 @@ function Contact() {
             {isSubmitting ? '전송 중...' : '문의하기'}
           </button>
         </form>
+
+        <div className="contact-buttons">
+          <button 
+            onClick={handleKakaoClick}
+            className="kakao-button"
+          >
+            카카오톡으로 문의하기
+          </button>
+        </div>
       </div>
     </div>
   );
