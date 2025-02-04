@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>민티지(MintiZ) | 환경을 생각하는 의류수거 서비스</title>
+    <description>의류 폐기물을 줄이고 환경을 지키는 간편 수거 서비스를 제공하는 MintiZ(민티지)입니다.</description>
+    <link>https://home.mintizapp.com</link>
+    <atom:link href="https://home.mintizapp.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 04 Feb 2025 12:00:00 +0900</pubDate>
+    <lastBuildDate>Tue, 04 Feb 2025 12:00:00 +0900</lastBuildDate>
+    <language>ko</language>
+    
+    <item>
+      <title>민티지 이용방법 안내</title>
+      <description>의류 수거 서비스 이용방법과 매입단가 안내</description>
+      <link>https://home.mintizapp.com/how-to-use</link>
+      <guid>https://home.mintizapp.com/how-to-use</guid>
+      <pubDate>Tue, 04 Feb 2025 12:00:00 +0900</pubDate>
+    </item>
+    
+    <item>
+      <title>민티지 공식 블로그</title>
+      <description>민티지의 다양한 소식과 정보를 확인하실 수 있습니다.</description>
+      <link>https://blog.naver.com/mintiz_</link>
+      <guid>https://blog.naver.com/mintiz_</guid>
+      <pubDate>Tue, 04 Feb 2025 12:00:00 +0900</pubDate>
+    </item>
+  </channel>
+</rss> 
