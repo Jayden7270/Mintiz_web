@@ -165,7 +165,7 @@ function Export() {
       <div className="export-container">
         <div className="export-header">
           <h1>데이터 내보내기</h1>
-          <p>원하는 기간의 데이터를 조회하고 다운로드하세요</p>
+          <p>원하는 기간의 데이터를 조회하고<br /> 다운로드하세요</p>
         </div>
         
         <form onSubmit={handleSubmit} className="export-form">
