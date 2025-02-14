@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 1) 메인 페이지 사이트맵 -->
   <sitemap>
     <loc>https://home.mintizapp.com/sitemap.xml</loc>
-    <lastmod>2024-03-21</lastmod>
+    <lastmod>2025-02-04</lastmod>
   </sitemap>
+
+  <!-- 2) 이미지 전용 사이트맵 -->
   <sitemap>
     <loc>https://home.mintizapp.com/image-sitemap.xml</loc>
-    <lastmod>2024-03-21</lastmod>
+    <lastmod>2025-02-04</lastmod>
   </sitemap>
-</sitemapindex> 
+
+  <!-- 3) 블로그(또는 게시판)용 사이트맵 예시 -->
+  <sitemap>
+    <loc>https://home.mintizapp.com/blog-sitemap.xml</loc>
+    <lastmod>2025-02-04</lastmod>
+  </sitemap>
+
+  <!-- 4) 동영상용 사이트맵 예시 -->
+  <sitemap>
+    <loc>https://home.mintizapp.com/video-sitemap.xml</loc>
+    <lastmod>2025-02-04</lastmod>
+  </sitemap>
+
+</sitemapindex>
