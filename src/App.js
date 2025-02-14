@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import HowToUse from './pages/HowToUse';
+import Export from './pages/Export';
 import Footer from './components/Footer';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/how-to-use" element={<HowToUse />} />
+            <Route path="/export" element={<Export />} />
           </Routes>
           <Footer />
         </Router>
