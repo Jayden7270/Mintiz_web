@@ -17,7 +17,7 @@ function Navbar() {
   }, []);
 
   const handleTermsClick = () => {
-    window.open('https://hyperhire.notion.site/Mintiz-1777ac1c0f2f800eb895f27106ac857f?pvs=4', '_blank');
+    window.open('/terms');
     setMenuOpen(false);
   };
 
