@@ -9,11 +9,11 @@ function Export() {
   const [apiKey, setApiKey] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [status, setStatus] = useState('reqcomp'); // 'reqcomp'로 초기값 변경
+  const [status, setStatus] = useState('reqcomp'); // 'reqcomp'로 초기값
   const [isDataReady, setIsDataReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
-  // 에러 상태 추가
+  // 에러 상태
   const [errors, setErrors] = useState({
     apiKey: '',
     startDate: '',
@@ -38,16 +38,16 @@ function Export() {
       isValid = false;
     }
 
-    // 시작일 검증
-    if (!startDate) {
-      newErrors.startDate = '시작일을 선택해주세요';
-      isValid = false;
-    }
-
-    // 종료일 검증
-    if (!endDate) {
-      newErrors.endDate = '종료일을 선택해주세요';
-      isValid = false;
+    // 지난수거가 아닐 때만 날짜 검증
+    if (status !== 'lastcollection') {
+      if (!startDate) {
+        newErrors.startDate = '시작일을 선택해주세요';
+        isValid = false;
+      }
+      if (!endDate) {
+        newErrors.endDate = '종료일을 선택해주세요';
+        isValid = false;
+      }
     }
 
     // 상태 선택 검증
@@ -79,7 +79,15 @@ function Export() {
   };
 
   const handleStatusChange = (e) => {
-    setStatus(e.target.value);
+    const newStatus = e.target.value;
+    setStatus(newStatus);
+    
+    // 상태가 변경될 때 날짜 초기화
+    if (newStatus === 'last collection per user') {
+      setStartDate(null);
+      setEndDate(null);
+    }
+    
     setErrors(prev => ({...prev, status: ''}));
   };
 
@@ -89,7 +97,6 @@ function Export() {
     setIsLoading(true);
     
     try {
-      // status 값에 따라 올바른 백엔드 코드로 매핑
       const statusMapping = {
         'reqcomp': 'sts_reqcomp',       // 수거신청완료
         'kitdisp': 'sts_kitdisp',       // 키트배송완료
@@ -98,16 +105,22 @@ function Export() {
         'colcomp': 'sts_colcomp',       // 입고완료
         'inscomp': 'sts_inscomp',       // 검수완료
         'paycomp': 'sts_paycomp',       // 입금완료
-        'lastcollection': 'sts_lastcollection', // 지난수거
+        'lastcollection': 'user_total', // 지난수거
         'reqcncl': 'sts_reqcncl',       // 취소요청
-  
-    };
-      const requestBody = {
-        key: apiKey,
-        startDate: format(startDate, 'yyyy-MM-dd'),
-        endDate: format(endDate, 'yyyy-MM-dd'),
-        searchStatus: statusMapping[status]
       };
+
+      // 지난수거일 때는 key와 searchStatus만 전송
+      const requestBody = status === 'lastcollection' 
+        ? {
+            key: apiKey,
+            searchStatus: statusMapping[status]
+          }
+        : {
+            key: apiKey,
+            searchStatus: statusMapping[status],
+            startDate: format(startDate, 'yyyy-MM-dd'),
+            endDate: format(endDate, 'yyyy-MM-dd'),
+          };
 
       console.log('Request Body:', requestBody);
 
@@ -198,50 +211,53 @@ function Export() {
             </div>
           </div>
 
-          <div className="form-section date-section">
-            <div className="form-group">
-              <label>시작일</label>
-              <DatePicker
-                selected={startDate}
-                onChange={handleStartDateChange}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-                dateFormat="yyyy년 MM월 dd일"
-                locale={ko}
-                customInput={<CustomInput />}
-                placeholderText="시작일 선택"
-                className={`styled-datepicker ${errors.startDate ? 'error' : ''}`}
-              />
-              {errors.startDate && (
-                <div className="error-message">
-                  <FaExclamationCircle /> {errors.startDate}
-                </div>
-              )}
-            </div>
+          {/* 날짜 선택 섹션: 지난수거가 아닐 때만 표시 */}
+          {status !== 'lastcollection' && (
+            <div className="form-section date-section">
+              <div className="form-group">
+                <label>시작일</label>
+                <DatePicker
+                  selected={startDate}
+                  onChange={handleStartDateChange}
+                  selectsStart
+                  startDate={startDate}
+                  endDate={endDate}
+                  dateFormat="yyyy년 MM월 dd일"
+                  locale={ko}
+                  customInput={<CustomInput />}
+                  placeholderText="시작일 선택"
+                  className={`styled-datepicker ${errors.startDate ? 'error' : ''}`}
+                />
+                {errors.startDate && (
+                  <div className="error-message">
+                    <FaExclamationCircle /> {errors.startDate}
+                  </div>
+                )}
+              </div>
 
-            <div className="form-group">
-              <label>종료일</label>
-              <DatePicker
-                selected={endDate}
-                onChange={handleEndDateChange}
-                selectsEnd
-                startDate={startDate}
-                endDate={endDate}
-                minDate={startDate}
-                dateFormat="yyyy년 MM월 dd일"
-                locale={ko}
-                customInput={<CustomInput />}
-                placeholderText="종료일 선택"
-                className={`styled-datepicker ${errors.endDate ? 'error' : ''}`}
-              />
-              {errors.endDate && (
-                <div className="error-message">
-                  <FaExclamationCircle /> {errors.endDate}
-                </div>
-              )}
+              <div className="form-group">
+                <label>종료일</label>
+                <DatePicker
+                  selected={endDate}
+                  onChange={handleEndDateChange}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  dateFormat="yyyy년 MM월 dd일"
+                  locale={ko}
+                  customInput={<CustomInput />}
+                  placeholderText="종료일 선택"
+                  className={`styled-datepicker ${errors.endDate ? 'error' : ''}`}
+                />
+                {errors.endDate && (
+                  <div className="error-message">
+                    <FaExclamationCircle /> {errors.endDate}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="form-section">
             <div className="form-group">
@@ -249,7 +265,7 @@ function Export() {
               <select
                 id="status"
                 value={status}
-                onChange={(e) => setStatus(e.target.value)}
+                onChange={handleStatusChange}
                 className={`styled-select ${errors.status ? 'error' : ''}`}
               >
                 <option value="reqcomp">수거신청완료</option>
@@ -295,4 +311,4 @@ function Export() {
   );
 }
 
-export default Export; 
+export default Export;
