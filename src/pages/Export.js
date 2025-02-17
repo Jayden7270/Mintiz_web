@@ -91,15 +91,34 @@ function Export() {
     try {
       // status 값에 따라 올바른 백엔드 코드로 매핑
       const statusMapping = {
-        'reqcomp': 'sts_paycomp',
-        'rtnrqst': 'sts_rtnrqst'
-      };
-
+        'reqcomp': 'sts_reqcomp',       // 수거신청완료
+        'kitdisp': 'sts_kitdisp',       // 키트배송완료
+        'pkdtfix': 'sts_pkdtfix',       // 픽업일 확정
+        'rtnrqst': 'sts_rtnrqst',       // 회수신청완료
+        'colcomp': 'sts_colcomp',       // 입고완료
+        'inscomp': 'sts_inscomp',       // 검수완료
+        'paycomp': 'sts_paycomp',       // 입금완료
+        'lastcollection': 'sts_lastcollection', // 지난수거
+        'reqcncl': 'sts_reqcncl',       // 취소요청
+        'delvcomp': 'sts_delvcomp',     // 배송완료
+        'intransit': 'sts_intransit',   // 배송중
+        'ordcomp': 'sts_ordcomp',       // 주문완료
+        'ordcncl': 'sts_ordcncl',       // 주문취소
+        'rtncomp': 'sts_rtncomp',       // 반품완료
+        'exchcomp': 'sts_exchcomp',     // 교환완료
+        'refcomp': 'sts_refcomp',       // 환불완료
+        'qcpend': 'sts_qcpend',         // 검수대기
+        'qccomp': 'sts_qccomp',         // 검수완료
+        'storcomp': 'sts_storcomp',     // 보관완료
+        'storpend': 'sts_storpend',     // 보관대기
+        'readydisp': 'sts_readydisp',   // 출고준비완료
+        'shiphold': 'sts_shiphold'      // 출고보류
+    };
       const requestBody = {
         key: apiKey,
         startDate: format(startDate, 'yyyy-MM-dd'),
         endDate: format(endDate, 'yyyy-MM-dd'),
-        statuses: [statusMapping[status]]
+        searchStatus: statusMapping[status]
       };
 
       console.log('Request Body:', requestBody);
@@ -246,7 +265,27 @@ function Export() {
                 className={`styled-select ${errors.status ? 'error' : ''}`}
               >
                 <option value="reqcomp">수거신청완료</option>
+                <option value="kitdisp">키트배송완료</option>
+                <option value="pkdtfix">픽업일 확정</option>
                 <option value="rtnrqst">회수신청완료</option>
+                <option value="colcomp">입고완료</option>
+                <option value="inscomp">검수완료</option>
+                <option value="paycomp">입금완료</option>
+                <option value="lastcollection">지난수거</option>
+                <option value="reqcncl">취소요청</option>
+                <option value="delvcomp">배송완료</option>
+                <option value="intransit">배송중</option>
+                <option value="ordcomp">주문완료</option>
+                <option value="ordcncl">주문취소</option>
+                <option value="rtncomp">반품완료</option>
+                <option value="exchcomp">교환완료</option>
+                <option value="refcomp">환불완료</option>
+                <option value="qcpend">검수대기</option>
+                <option value="qccomp">검수완료</option>
+                  <option value="storcomp">보관완료</option>
+                <option value="storpend">보관대기</option>
+                <option value="readydisp">출고준비완료</option>
+                <option value="shiphold">출고보류</option>
               </select>
               {errors.status && (
                 <div className="error-message">
