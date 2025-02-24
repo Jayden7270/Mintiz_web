@@ -5,14 +5,16 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-links">
-        <a 
-      href="https://hyperhire.notion.site/Mintiz-1777ac1c0f2f800eb895f27106ac857f?pvs=4" 
-      className="footer-link" 
-      target="_blank" 
-      rel="noopener noreferrer">
-      이용약관
-</a>    </div>
+      <div className="footer-links">
+  <a
+    href="https://home.mintizapp.com/terms"
+    className="footer-link"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    이용약관
+  </a>
+</div>
 <div className="footer-links">
           <Link 
             to="/privacy-policy" 
