@@ -8,6 +8,7 @@ import HowToUse from './pages/HowToUse';
 import Export from './pages/Export';
 import Footer from './components/Footer';
 import Terms from './pages/Terms';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/how-to-use" element={<HowToUse />} />
             <Route path="/export" element={<Export />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
           <Footer />
         </Router>
